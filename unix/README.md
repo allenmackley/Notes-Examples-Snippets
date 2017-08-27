@@ -1,34 +1,36 @@
+## General notes and snippets
+
 ### Unix
-Checks ports used by programs in Linux. Is useful to see if there are conflicts.
+Checks ports used by programs in Linux. Is useful to see if there are conflicts.  
 `netstat -antp`
 
-To check avail space on all drives:
+To check avail space on all drives:  
 `df`
 
-To check folder sizes of directories
+To check folder sizes of directories  
 `sudo du -h / | grep '[0-9\.]\+G'`
 
 ### MySQL
-Start MySQL from command line on OS X (From Homebrew Install)
+Start MySQL from command line on OS X (From Homebrew Install)  
 `mysql.server start`
 
 With MAMP, normally start from the GUI.
 Start MySQL CLI on OS X (From MAMP Install)
 `/Applications/MAMP/Library/bin/mysql --host=localhost -uroot -proot`
 
-Force Mysql Homebrew install to quit
+Force Mysql Homebrew install to quit  
 `launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist`
 
-To set Mysql new password (if not set yet)
+To set Mysql new password (if not set yet)  
 `mysqladmin -u root password`
 
 ### NodeJS
 NPM comes installed with node.
 
-To install an NPM package
+To install an NPM package  
 `npm install nameofpackage`
 
-Save dependencies specific to dev with
+Save dependencies specific to dev with  
 `npm install nameofpackage --save-dev`
 
 Node packages I use often
@@ -45,7 +47,7 @@ Node packages I use often
 * ws (websockets)
 
 ### MongoDB
-Start MongoDB on localhost
+Start MongoDB on localhost  
 `sudo mongod --fork --logpath ~/Sites/sitename/log/mongo.log`
 
 To install mongodb on OSX
@@ -64,16 +66,16 @@ s3cmd sync —recursive folder_with_videos s3://mybucketname/mydestination/
 
 ### Apache
 apache2 to enable sites and mods:
-sites:
+sites:  
 `sudo a2ensite mysite`
-mods:
+mods:  
 `sudo a2enmod modname`
 
 ### NGINX
-Nginx Conf on OS X can be found at:
+Nginx Conf on OS X can be found at:  
 `/usr/local/etc/nginx/nginx.conf`
 
-check NGINX config file for accuracy
+check NGINX config file for accuracy  
 `nginx -t`
 
 System Admin Gotchas in Dev Environment...
@@ -99,10 +101,6 @@ PHP packages I use often
 * openssl
 * json
 * … (and many others that usually come with PHP)
-
-To fix mongo pecl install error:
-1. brew install openssl
-2. ln -s /usr/local/Cellar/openssl/1.0.2d_1/include/openssl /usr/local/include/openssl
 
 ### Ruby
 To start Rails server
