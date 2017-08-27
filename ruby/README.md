@@ -11,6 +11,72 @@
 * After switching Ruby versions, don't forget to update NGINX config file and point Phusion Passender to the new install location.
 * Unlike RVM, which has `use` for switching Ruby versions, rbenv is designed to respect your project's `.ruby-version` file.
 
+#### To Install Ruby on OS X
+* Note that OS X comes with Ruby already installed, however, we want to update it and install some utilities
+* First, make sure to install Homebrew (if it isn’t installed already) by copying code into terminal from the Homebrew website
+* Make sure OS X command line tools are installed (download from website)
+* Install rbenv to manage Ruby versions - "brew install rbenv" and `brew install ruby-build`
+* Put rbenv initializer script into .bash_profile `$(rbenv init-)`
+* reload bash profile `source ~/.bash_profile`
+* Check ruby-lang.org website for the latest version, then install Ruby, (example: `rbenv install 2.2.2`)
+* Switch to newly installed version `rbenv rehash`
+* Use newly installed version globally `rbenv global 2.2.2`
+* Check versions with `rbenv versions`
+* Update gem with `gem update —system`
+* Install bundler - `gem install bundler` - which manages ruby gems and dependencies (like how Composer works with PHP)
+* Find the latest version of Rails on the rubygems.org website
+* `gem install rails —no-ri —no-rdoc —version 4.2.1` to install Ruby on Rails without documentation
+* `rbenv rehash`
+* Check if MySQL is installed with `mysql —version` and `which mysql`
+* If MySQL not installed, then install it with `brew install mysql` (unless using MAMP)
+* Tell MySQL to launch at startup with `ln -sfv /usr/local/opt/mysql/\*.plist ~/Library/LaunchAgents`
+* Check if installed with `mysql —version`
+* Start MySQL with `mysql.server start`
+* Set MySQL root password with `mysqladmin -u root password`
+* Install MySQL Ruby Gem with `gem install mysql2` or by including it in the Gemfile.
+
+#### To Create a Rails Project
+* "cd ~/sites"
+* “rails new myprojectname -d mysql"
+* specify the gems needed in the Gemfile
+* run “bundle install” to configure gems from Gemfile
+* configure database name and credentials at /config/database.yml
+
+To Start Rails WEBrick server
+* “rails server” or “rails s"
+* Go to “localhost:3000” (Note that if configs changed, you need to restart the WEBrick server)
+
+To Generate Rails Controller
+* cd into project directory
+* “rails generate controller nameofcontroller nameofview1 nameofview2” etc.
+
+To Generate Migration
+`rails generate migration NameOfMigration`
+
+To Generate Model
+`rails generate model NameOfModel`
+
+To Run Migration
+`rake db:migrate`
+or
+`rake db:migrate RAILS_ENV=development` (or production)
+
+To Get Migration Status
+`rake db:migrate:status`
+
+To install new Gem files
+`bundle install`
+
+To run rests in Ruby on Rails
+`bundle exec rake test`
+or just `rake test`
+or just `rake`
+
+Rails “Incomplete Response from Application” could mean several things:
+* That the SECRET_KEY_BASE is not set in the `.bash_profile` or `.profile` (RAILS_ENV=production rake secret)
+* That the SECRET_KEY_BASE is set, but not correct, or that the `.profile` needs to be re-sourced or the rails app restarted
+* That MySQL isn’t running or needs to be restarted
+
 #### On Single Page Apps...
 * [Follow Google's guidelines](https://developers.google.com/webmasters/ajax-crawling/docs/learn-more)
 * > "If you're starting from scratch, one good approach is to build your site's structure and navigation using only HTML. Then, once you have the site's pages, links, and content in place, you can spice up the appearance and interface with AJAX. Googlebot will be happy looking at the HTML, while users with modern browsers can enjoy your AJAX bonuses."
@@ -136,17 +202,3 @@
 * Use a Struct when you need a fixed set of attributes.
 * Use hashes when attributes might later be added or removed.
 * Structs in C have little or nothing to do with Ruby Structs, so don't get confused by that.
-
-#### MySQL
-* When using MAMP in dev, access MySQL from the command line with `/Applications/MAMP/Library/bin/mysql --host=localhost -uroot -proot`
-* About indexes
-  * Basically an index is a map of all your keys that is sorted in order. With a list in order, then instead of checking every key, it can use a binary search algorithm, like this:
-    1. Go to middle of list - is higher or lower than what I'm looking for?
-    2. If higher, go to halfway point between middle and bottom, if lower, middle and top
-    3. Is higher or lower? Jump to middle point again, etc.
-    4. Using that logic, you can find an element in a sorted list much fewer steps, instead of checking every item.
-  * Set the index to UNIQUE if there shouldn't be more than one instance of the same key.
-  * Index those columns that are used heavily to SELECT on. Don't index columns that aren't used often in SELECT, because there's a slight performance impact on insert.
-  * Don't forget to add foreign key constraints between related tables
-
-.
