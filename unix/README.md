@@ -10,6 +10,27 @@ To check avail space on all drives:
 To check folder sizes of directories  
 `sudo du -h / | grep '[0-9\.]\+G'`
 
+### Atom
+Favorite packages
+* language-haml
+Provides langauge support and syntax highlighting for HAML
+* language-javascript-jsx
+Provides the same for JSX
+* platformio-ide-terminal
+A terminal panel that opens up within Atom. I love this package because I'm able to switch to the terminal really quickly. In dev, I split my macOS desktop screen with Chrome on the left and Atom on the right. Normally, I might have to swipe to another desktop view to access the terminal. However, this way, I can keep it right next to me within Atom.
+* vim-mode
+Allows me to use Vim commands inside Atom. I like working in Vim mode because it allows me to keep my hands on the keyboard, and off of the mouse as much as possible.
+
+Atom custom keybindings
+```
+'atom-text-editor':
+   'cmd-,': 'core:move-left'
+   'cmd-.': 'core:move-right'
+   'cmd-[': 'core:move-up'
+   'cmd-]': 'core:move-down'
+```
+These allow me to move around around the text like I can with the arrow keys, but without having to take my hands off of the center row of the keyboard. These commands let me do this while in insert mode as well if I want.
+
 ### MySQL
 Start MySQL from command line on OS X (From Homebrew Install)  
 `mysql.server start`

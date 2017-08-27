@@ -45,10 +45,10 @@ int main(int argc, char** argv) {
 
   Running it with `./test a b c` will output
 
-  Have 4 arguments:
-  ./test
-  a1
-  b2
+  Have 4 arguments:  
+  ./test  
+  a1  
+  b2  
   c3
 
 * char \*\*argv and char \*argv[] are essentially the same things. argv[] is simply a different way of writing \*argv, and is a pointer to an array (not an actual array). However there is an additional \* that adds an additional pointer. So char \*\* argv is saying *"point to the first char in the pointer array of chars".*
