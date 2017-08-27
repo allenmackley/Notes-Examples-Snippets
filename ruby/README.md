@@ -144,8 +144,9 @@
     1. Go to middle of list - is higher or lower than what I'm looking for?
     2. If higher, go to halfway point between middle and bottom, if lower, middle and top
     3. Is higher or lower? Jump to middle point again, etc.
+    4. Using that logic, you can find an element in a sorted list much fewer steps, instead of checking every item.
   * Set the index to UNIQUE if there shouldn't be more than one instance of the same key.
   * Index those columns that are used heavily to SELECT on. Don't index columns that aren't used often in SELECT, because there's a slight performance impact on insert.
   * Don't forget to add foreign key constraints between related tables
 
-Using that logic, you can find an element in a sorted list in about 7 steps, instead of checking every item.
+.
