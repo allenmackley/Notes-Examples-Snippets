@@ -12,6 +12,7 @@ Inside the test file, include the files that we need to test.
 `const modulename = require('./modulename')`
 
 Or, ES6 way...
+Note, that using `import` isn't supported on very many browsers yet and so if I used it, make sure to use it with Babel.
 `import modulename from './modulename'`
 
 package.json config...
