@@ -5,5 +5,7 @@ IO operations take much, much longer than other operations. Therefore, if we can
 
 Writing our applications to work in NodeJS on a single event thread, makes us think about IO, and how we can work around it as efficiently as possible.
 
+[Great video talking about this.](https://www.youtube.com/watch?v=L0pjVcIsU6A)
+
 ### What about for CPU intensive tasks? Aren't those slow when run on a single thread?
 Yes, but we can spawn a separate process or webworker specifically for those situations when they occur. Again, giving us the power of a single threaded event loop for most situations, plus the power to spawn off a thread when needed for any other unique situation.
