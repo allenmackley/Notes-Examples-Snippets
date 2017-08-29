@@ -1,6 +1,6 @@
 ### The old, ES5 way of doing inheritance...
 
-First define a function that we will use to act as our constructor
+First define a function that we will use to act as our constructor.
 ```
 function Vehicle(name, type) {
   this.name = name;
@@ -8,7 +8,7 @@ function Vehicle(name, type) {
 }
 ```
 
-Create our methods, in this case, getter methods for the properties of our instance
+Create our methods, in this case, getter methods for the properties of our instance.
 ```
 Vehicle.prototype.getName = function getName() {
   return this.name;
@@ -18,36 +18,36 @@ Vehicle.prototype.getType = function getType() {
 };
 ```
 
-This is our child class. This is the like calling "super()". We call the parent constructor within the context of the child, passing a name, and the default type here as 'car', since this child will always be of the type Car. Because we're calling Vehicle within the context of "this", this.name and this.type are set in the context of Car, not Vehicle.
+This is our child class. This is the like calling `super()`. We call the parent constructor within the context of the child, passing a name, and the default type here as 'car', since this child will always be of the type `Car`. Because we're calling `Vehicle` within the context of `this`, `this.name` and `this.type` are set in the context of `Car`, not `Vehicle`.
 ```
 function Car(name) {
   Vehicle.call(this, name, 'car');
 }
 ```
 
-Create a prototype link between Car's prototype and Vehicle's prototype
+Create a prototype link between Car's prototype and Vehicle's prototype.  
 `Car.prototype = Object.create(Vehicle.prototype);`
 
-The constructor reference gets overwritten when we do the above, so we have to set it again back to Car.
+The constructor reference gets overwritten when we do the above, so we have to set it again back to `Car`.
 `Car.prototype.constructor = Car;`
 
-We also store a reference back to the parent so we can access it easily if we need to  
+We also store a reference back to the parent so we can access it easily if we need to.  
 `Car.parent = Vehicle.prototype;`
 
-And now we provide Car with its own prototype methods.  
+And now we provide `Car` with its own prototype methods.  
 ```
 Car.prototype.getName = function() {
   return 'It is a car: '+ this.name;
 };
 ```
 
-Create a new car. At this point, Car's constructor is called, as well as the contructor for Vehicle.  
+Create a new car. At this point, `Car`'s constructor is called, as well as the constructor for `Vehicle`.  
 `var car = new Car('Tesla');`
 
-Both Car and Vehicle have a method getName(), however, the first occurance of it is found on Car, so we call that one.  
+Both `Car` and `Vehicle` have a method `getName()`, however, the first occurrence of it is found on `Car`, so we call that one.  
 `console.log(car.getName()); //It is a car: Tesla`
 
-`Vehicle` has a `getType()`, but `Car` doesn't. However, we linked their prototypes earlier (thus, the inheritance), and so the JavaScript engine is designed to search the prototype for `Car` first, and if it can't find it, it references the hidden `__proto__` property, which says that there is a link to the protoype for Vehicle. It check Vehicle and finds a `getType()` method and so calls it and we get back the type of "car".
+`Vehicle` has a `getType()`, but `Car` doesn't. However, we linked their prototypes earlier (thus, the inheritance), and so the JavaScript engine is designed to search the prototype for `Car` first, and if it can't find it, it references the hidden `__proto__` property, which says that there is a link to the prototype for Vehicle. It check Vehicle and finds a `getType()` method and so calls it and we get back the type of "car".
 `console.log(car.getType()); //car`
 
 ### The new, ES6 way...
