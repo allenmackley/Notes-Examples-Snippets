@@ -10,7 +10,7 @@
       document.body.appendChild(btn);
     }
 
-The problem with the above is that `i` exists within the scope of the `window` (or whatever higher level function that might be scoped above this code). Each time the `for` loop runs, `i` is incremented and changed. `i` is global. Therefore, once the click event occurs, and anonymous function bound to it is run, and `i` is always `5`.  
+The problem with the above is that `i` exists within the scope of the `window` (or whatever higher level function that might be scoped above this code). Each time the `for` loop runs, `i` is incremented and changed. `i` is global. Therefore, once the click event occurs, and the anonymous function bound to it is run, and `i` is always `5`.  
 
 ##### Old school way before .bind() was available...
     for (var i = 0; i < 5; i++) {

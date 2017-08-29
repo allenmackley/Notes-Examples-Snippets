@@ -47,12 +47,12 @@ Create a new car. At this point, `Car`'s constructor is called, as well as the c
 Both `Car` and `Vehicle` have a method `getName()`, however, the first occurrence of it is found on `Car`, so we call that one.  
 `console.log(car.getName()); //It is a car: Tesla`
 
-`Vehicle` has a `getType()`, but `Car` doesn't. However, we linked their prototypes earlier (thus, the inheritance), and so the JavaScript engine is designed to search the prototype for `Car` first, and if it can't find it, it references the hidden `__proto__` property, which says that there is a link to the prototype for Vehicle. It check Vehicle and finds a `getType()` method and so calls it and we get back the type of "car".
+`Vehicle` has a `getType()`, but `Car` doesn't. However, we linked their prototypes earlier (thus, the inheritance), and so the JavaScript engine is designed to search the prototype for `Car` first, and if it can't find it, it references the hidden `__proto__` property, which says that there is a link to the prototype for `Vehicle`. It checks `Vehicle` and finds a `getType()` method and so calls it and we get back the type of "car".  
 `console.log(car.getType()); //car`
 
 ### The new, ES6 way...
 
-When I first learned this a few years ago, it took me a while to fully absorb. Now we can do the same thing much more intuitively, using ES6. The new pattern looks a lot more like other languages.
+When I first learned inheritance in ES5 a few years ago, it took me a while to fully absorb. Now we can do the same thing much more intuitively, using ES6. The new pattern looks a lot more like other languages.
 ```
 class Vehicle {
   constructor(name, type) {
@@ -82,4 +82,4 @@ let car = new Car('Tesla');
 console.log(car.getName()); //It is a car: Tesla
 console.log(car.getType()); //car
 ```  
-Note that we use the `__proto__` object here to link the objects, and under the hood it works in a similar way as what happens under the hood in ES5. However, in the ES6 example, we don't explicitly set the prototype property (however, it still gets set). The prototype property, and the hidden `__proto__` property, are two different things.
+Note that we use the `__proto__` object here to link the objects, and under the hood it works in a similar way as what happens under the hood in ES5. However, in the ES6 example, we don't explicitly set the prototype property, however, the `__proto__` link still gets set. The prototype property, and the hidden `__proto__` property, are two different things.
