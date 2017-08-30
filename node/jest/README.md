@@ -51,3 +51,8 @@ module.exports = {
     }
 }
 ```
+
+#### About Mocking
+* Mocks are "fake" objects that act as stand-ins.
+* Mocks are often used when you only need to test a part of how any object works, and don't want to require the whole object or all of its dependencies. 
+* Mocks are different than stubs. Generally speaking, a stub is just a set of data, whereas mocks contain methods and functionality.
