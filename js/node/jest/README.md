@@ -34,6 +34,10 @@ package.json config...
 }
 ```
 
+We'll have to use two terminals, one for Webpack to watch files and rebuild them when they've changed, and a second one to watch for changes and run a test with Jest when they change.
+
+(NPM package, Jestpack, to help with this:)[https://www.npmjs.com/package/jestpack]
+
 Under the "scripts" section, we have `"test": "jest"` which lets us do `npm test` to run Jest.
 
 `jest --watch` will watch the file for changes and run the tests again automatically. We can do this with `npm tdd`.
