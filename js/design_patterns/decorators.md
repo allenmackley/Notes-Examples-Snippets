@@ -15,7 +15,7 @@ We can do this really easily with jQuery with:
 
 This takes an empty object `{}` and adds `defaults` and `options` to it, mixing them both into the empty object. So `options` is decorating `defaults`.
 
-It's similar to a Mixin Pattern, except that we're not actually adding `options` to `defaults`. The `defaults` bass object (or "class") remains unchanged, we're decorating an instance of it.
+_It's similar to a Mixin Pattern, except that we're not actually adding `options` to `defaults`. The `defaults` base object (or "class") remains unchanged, we're decorating an instance of it._
 
 ### How much to use the decorator pattern?
 How often we use the Decorator Pattern depends on how unique each object instance needs to be in our app. 
