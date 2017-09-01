@@ -15,4 +15,8 @@ Underscore's `_extend` simply combines objects, copying the methods from the sec
 This will add `myMixinMethods` to the prototype for `MyClassObject`. We can then create an instance of `MyClassObject` and the new methods that were mixed in will be available.
 
 ## When to use?
-Use a mixin whenever there are multiple places in our app that need to use the same method. 
+Use a mixin whenever there are multiple places in our app that need to use the same methods. 
+
+Using mixins is called _composition_ and is a preferable design pattern over inheritance. Use composition instead of inheritance whenever possible. Doing so will help us add features to our app later without breaking our architecture.
+
+Use inheritance only when we're very confident that there are certain behaviors in our design that will not change. In app development, almost everything is mutable, and so this is why we favor composition.
