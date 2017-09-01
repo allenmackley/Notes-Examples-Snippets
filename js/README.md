@@ -14,11 +14,10 @@
 
 ### Dev Tools
 * Webpack
-    * Packages together a whole bunch of JavaScript modules.
+    * Packages together JavaScript modules.
     * Will compile and compress JavaScript into a single file. Also does this for CSS.
 * Browserify
-    * Will launch a local server that will check for changes on the file system and reload the browser whenever a file is changed.
-    * Included in Webpack.
+    * Allows you to bundle and load modules.
 * TypeScript
     * Compiles modern JavaScript down to older versions with complete browser and device support.
     * Static typing capabilities.
