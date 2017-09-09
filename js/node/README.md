@@ -16,7 +16,7 @@ With NodeJS, Node acts as both the web scripting language and the web server. Be
 * Use the `forever` NPM package. This will restart the NodeJS server automatcially whenever it crashes.
 * Use the `cluster` module so that if one user encounters a bug, only those users in his cluster experience an interruption, instead of everyone who's using the entire app, which could be a lot of people.
 * [Listen for errors on every event and make sure to catch and handle them correctly.](https://www.joyent.com/node-js/production/design/errors) 
-* Test really thoroughly before publishing to production. Any bugs should be caught before going to production anyway.
+* Test really thoroughly before publishing to production. Any bugs should be caught before going to production.
 * It can seem like things are working, until a bug is encountered in an asynchronous callback somewhere, and then the entire app comes crashing down, so be careful to test async callbacks thoroughly!
 * Although handling errors can be frustrating to work around in NodeJS, it's a tradeoff for speed. NodeJS is fast! 
 
@@ -25,5 +25,5 @@ With NodeJS, Node acts as both the web scripting language and the web server. Be
 * Big data 
 * Apps with heavy IO
 
-We don't need to disqualify PHP, however, because non-blocking I/O can be performed with ReactPHP.
+We don't need to disqualify PHP, however, because non-blocking I/O can be performed with ReactPHP. In my opinion, however, why use PHP for non-blocking I/O when it can also be done with Javascript - a language originally designed for it - thereby using one language for full-stack development instead of two? NodeJS is also be more likely to lead developers into using asynchronous design patterns because it's a part of its very nature. NPM is also the largest package library in the world. Most of those packages most likely use non-blocking I/O, but can the same be said for most current PHP packages?
 
