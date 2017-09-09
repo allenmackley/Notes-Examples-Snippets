@@ -56,3 +56,13 @@ int main(int argc, char** argv) {
   * There is a pointer, `*argv`, that points to it.
   * There is a character pointer that points to the first value of the array pointer, or a "pointer to a pointer".
   * We can iterate over the character pointer to move through the values pointed to in the array pointer.
+
+Example of looping through an array pointer:
+```
+int s[] = "Hello World";
+for( char *cp = s; *cp; ++cp ) {
+  printf("element %c\n", *cp);
+}
+```
+
+This creates an array pointer `*cp`, that starts out pointing at the first element of the array, in this case, the string is like an array. And it says: so long as `*cp` is true - that is, there's a value at that position - iterate to the next position in the array (in this case, the next character in the string). If `*cp` isn't true, then we've reached the end of our string. 
