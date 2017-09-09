@@ -25,5 +25,5 @@ With NodeJS, Node acts as both the web scripting language and the web server. Be
 * Big data 
 * Apps with heavy IO
 
-We don't need to disqualify PHP, however, because non-blocking I/O can be performed with ReactPHP. In my opinion, however, why use PHP for non-blocking I/O when it can also be done with Javascript - a language originally designed for it - thereby using one language for full-stack development instead of two? NodeJS is also be more likely to lead developers into using asynchronous design patterns because it's a part of its very nature. NPM is also the largest package library in the world. Most of those packages most likely use non-blocking I/O, but can the same be said for most current PHP packages?
+We don't need to disqualify PHP, however, because non-blocking I/O can be performed with ReactPHP. In my opinion, however, why use PHP for non-blocking I/O when it can also be done with Javascript - a language originally designed for it - thereby using one language for full-stack development instead of two? NodeJS is also more likely to lead developers into using asynchronous design patterns because it's a part of its very nature. NPM is also the largest package repository in the world. Most of those packages most likely use non-blocking I/O, but can the same be said for most current PHP packages?
 
